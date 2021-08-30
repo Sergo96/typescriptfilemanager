@@ -1,58 +1,70 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+
 import './App.css';
 
+import Header from "./Components/Header/Header";
+import Dashboard from "./Components/Dashboard/Dashboard";
+
+import {signInWithPopup} from "firebase/auth";
+
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
+
+
+import {auth, provider} from "./firebase";
+
+import {useDispatch, useSelector} from "react-redux";
+import {
+    setActiveUser,
+    setUserLogOutState,
+    selectUserName,
+    // selectUserEmail,
+} from "./features/userSlice/userSlice";
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+    const dispatch = useDispatch();
+
+    const userName = useSelector(selectUserName);
+
+    const handleSignIn = () => {
+        signInWithPopup(auth, provider).then((result) => {
+            dispatch(
+                setActiveUser({
+                    userName: result.user.displayName,
+                    userEmail: result.user.email,
+                })
+            );
+        });
+    };
+
+    const handleSignOut = () => {
+        auth
+            .signOut()
+            .then(() => {
+                dispatch(setUserLogOutState());
+            })
+            .catch((err) => alert(err.message));
+    };
+    return (
+        <Router>
+            <Switch>
+                <div className="App">
+                    {userName ? (
+                        <>
+                            <Header/>
+                            <button onClick={handleSignOut}>Sign out</button>
+                            <Route exact path="/" component={Dashboard}/>
+                            <Route exact path="/folder/:folderId" component={Dashboard}/>
+                        </>
+                    ) : (
+                        <button onClick={handleSignIn}>Sign in</button>
+                    )}
+
+                </div>
+            </Switch>
+
+        </Router>
+
+    );
 }
 
 export default App;
