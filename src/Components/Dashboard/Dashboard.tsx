@@ -1,16 +1,19 @@
-import React from "react"
+import React, {useRef} from "react";
+import "./Dashboard.scss"
 
 import {useParams, useLocation} from "react-router-dom"
 import {useSelector, useDispatch} from 'react-redux'
 
 import {database} from "../../firebase"
 
-import {addFile, removeFile, setFileStatus} from "../../features/fileSlice/fileSlice";
+import {addFile, removeFile, setFileStatus, updateFile} from "../../features/fileSlice/fileSlice";
 
 import {doc, setDoc} from "firebase/firestore";
 import {db} from "../../firebase";
 import {storage} from "../../firebase";
 import {RootState} from "../../app/store";
+
+
 
 import {Link} from "react-router-dom"
 
@@ -23,10 +26,24 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+
+
+import FolderIcon from '@material-ui/icons/Folder';
+
+
 export default function Dashboard() {
-    // const { folderId } = useParams()
-    // const { state = {} } = useLocation()
-    // const { folder, childFolders, childFiles } = useFolder(folderId, state.folder)
+    const inputRef = useRef(true);
+
+
+    const update = (id:any, value:any, e:any) => {
+        if (e.which === 13) {
+            updateFile({ id, item: value });
+        }
+    };
+
 
     const ROOT_FOLDER = {name: "Root", id: null, path: []}
 
@@ -34,13 +51,11 @@ export default function Dashboard() {
     const [name, setName] = React.useState<string>("");
 
 
-    // const file = useSelector((state: any) => state.file.folder)
     const {userEmail} = useSelector((state: any) => state.user);
     const todoList = useSelector((state: RootState) => state);
 
-    // console.log(fileList)
+    console.log(todoList)
 
-    // const { folder } = useSelector((state:any) => state.files);
 
     let currentdate = new Date();
 
@@ -64,35 +79,46 @@ export default function Dashboard() {
         closeModal()
     }
 
+    const filteredArr = todoList.files.filter((data:any) => data.parent === undefined)
+
     return (
         <>
-            <div>
-
-                <form onSubmit={handleSubmit}>
+            <div >
+                <form className={"form__style"} onSubmit={handleSubmit}>
                     <form>
-                        <label>Folder Name</label>
-                        <input
+                        <TextField
                             type="text"
                             required
                             value={name}
-                            onChange={e => setName(e.target.value)}
+                            onChange={(e) => setName(e.target.value)}
+                            label={"Creater Folder"}
+
                         />
                     </form>
-                    <button type="submit">
-                        Add Folder
-                    </button>
+                    <Button variant="contained" color="primary" type="submit">
+                        Create Folder
+                    </Button>
                 </form>
 
                 <List>
-                    {todoList.files.map((file: any) => (
-                        <Link to={`/folder/${file.id}`}>
+                    {filteredArr.map((file: any) => (
+
                             <ListItem key={file.id}>
                                 <ListItemText
                                     style={{
                                         textDecoration: file.completed ? "line-through" : "none",
                                     }}
                                 >
-                                    {file.description}
+                                    <Link to={`/folder/${file.id}`} style={{
+                                        textDecoration: "none",
+                                        color: "black"
+                                    }}>
+                                    <div className="folder">
+                                        <FolderIcon/>
+                                        <p>{file.description}</p>
+                                    </div>
+                                    </Link>
+
                                 </ListItemText>
                                 <ListItemSecondaryAction>
                                     <IconButton
@@ -113,10 +139,7 @@ export default function Dashboard() {
                                     />
                                 </ListItemSecondaryAction>
                             </ListItem>
-                        </Link>
-
                     ))}
-
                 </List>
             </div>
         </>

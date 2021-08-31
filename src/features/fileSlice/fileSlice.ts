@@ -5,10 +5,10 @@ interface File {
     id: number | string;
     description: string;
     completed: boolean;
+    parent: number;
 }
 
 const initialState = [] as File[];
-
 
 
 const fileSlice = createSlice({
@@ -19,11 +19,12 @@ const fileSlice = createSlice({
             reducer: (state, action: PayloadAction<File>) => {
                 state.push(action.payload);
             },
-            prepare: (description: string) => ({
+            prepare: (description: string, parent?: string | number) => ({
                 payload: {
                     id: Date.now(),
                     description,
                     completed: false,
+                    parent : parent,
                 } as File,
             }),
         },
@@ -53,12 +54,8 @@ const fileSlice = createSlice({
     },
 });
 
-export const { addFile, removeFile, setFileStatus } = fileSlice.actions;
+export const {addFile, removeFile, setFileStatus, updateFile} = fileSlice.actions;
 export default fileSlice.reducer;
-
-
-
-
 
 
 //

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.scss";
+import {Link} from "react-router-dom";
 
 import {Search, ExpandMore, HelpOutline, Settings, AccountCircle, Apps} from "@material-ui/icons";
 // import ExpandMoreIcon from "@material-ui/icons/";
@@ -11,14 +12,17 @@ import {Search, ExpandMore, HelpOutline, Settings, AccountCircle, Apps} from "@m
 const Header = () => {
     return (
         <div className="header">
+
             <div className="header__logo">
-                <img
-                    src={
-                        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/1200px-Flat_tick_icon.svg.png"
-                    }
-                    alt="Google Drive"
-                />
-                <span>Drive</span>
+                    <img
+                        src={
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/1200px-Flat_tick_icon.svg.png"
+                        }
+                        alt="Google Drive"
+                    />
+
+                    <span>Drive</span>
+
             </div>
             <div className="header__searchContainer">
                 <div className="header__searchBar">

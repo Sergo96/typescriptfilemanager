@@ -4,6 +4,7 @@ import './App.css';
 
 import Header from "./Components/Header/Header";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import SubFiles from "./pages/SubFiles/SubFiles";
 
 import {signInWithPopup} from "firebase/auth";
 
@@ -53,7 +54,7 @@ function App() {
                             <Header/>
                             <button onClick={handleSignOut}>Sign out</button>
                             <Route exact path="/" component={Dashboard}/>
-                            <Route exact path="/folder/:folderId" component={Dashboard}/>
+                            <Route exact path="/folder/:folderId" component={SubFiles}/>
                         </>
                     ) : (
                         <button onClick={handleSignIn}>Sign in</button>
