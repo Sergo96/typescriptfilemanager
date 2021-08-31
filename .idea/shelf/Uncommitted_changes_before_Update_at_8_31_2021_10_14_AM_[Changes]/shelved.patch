@@ -1,0 +1,69 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"78ff941b-1f9e-4e9b-be46-4c2e3347cac3\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/package.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/package.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/App.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/App.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/App.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/App.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Components/Header/Header.scss\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Components/Header/Header.scss\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Components/Header/Header.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Components/Header/Header.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/store.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/store.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/features/action-types.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/features/action-types.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/features/fileSlice/fileActions.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/features/fileSlice/fileActions.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/features/userSlice/userSlice.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/features/userSlice/userSlice.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/firebase.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/firebase.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/index.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/index.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/yarn.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/yarn.lock\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"TypeScript File\" />\r\n        <option value=\"TypeScript JSX File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/src/app/store.ts\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/src/App.tsx\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/src/app/hooks.ts\" root0=\"FORCE_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1xLsSQNIp0rgso4fzjtJMRt0oir\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_interpreter_path\" value=\"node\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"yarn\" />\r\n    <property name=\"ts.external.directory.path\" value=\"C:\\Program Files\\JetBrains\\WebStorm 2021.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"npm.npm start\">\r\n    <configuration name=\"Debug Application\" type=\"JavascriptDebugType\" uri=\"http://localhost:3000\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"npm start\" type=\"js.build_tools.npm\">\r\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\r\n      <command value=\"run\" />\r\n      <scripts>\r\n        <script value=\"start\" />\r\n      </scripts>\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"78ff941b-1f9e-4e9b-be46-4c2e3347cac3\" name=\"Changes\" comment=\"\" />\r\n      <created>1630145701878</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1630145701878</updated>\r\n      <workItem from=\"1630145703278\" duration=\"2425000\" />\r\n      <workItem from=\"1630303232726\" duration=\"33000\" />\r\n      <workItem from=\"1630303284799\" duration=\"33000\" />\r\n      <workItem from=\"1630303320815\" duration=\"22416000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 49543a2cbd6b1aa5b0bfb066f3f56816b481e2fe)
++++ b/.idea/workspace.xml	(date 1630390454696)
+@@ -1,22 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="78ff941b-1f9e-4e9b-be46-4c2e3347cac3" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.scss" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/features/action-types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/action-types.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/features/fileSlice/fileActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/fileSlice/fileActions.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/features/userSlice/userSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/userSlice/userSlice.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/firebase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+-    </list>
++    <list default="true" id="78ff941b-1f9e-4e9b-be46-4c2e3347cac3" name="Changes" comment="office commit" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -82,8 +67,23 @@
+       <workItem from="1630145703278" duration="2425000" />
+       <workItem from="1630303232726" duration="33000" />
+       <workItem from="1630303284799" duration="33000" />
+-      <workItem from="1630303320815" duration="22416000" />
++      <workItem from="1630303320815" duration="22538000" />
++    </task>
++    <task id="LOCAL-00001" summary="office commit">
++      <created>1630335796023</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1630335796023</updated>
++    </task>
++    <task id="LOCAL-00002" summary="office commit">
++      <created>1630335814484</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1630335814484</updated>
+     </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -100,4 +100,8 @@
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="office commit" />
++    <option name="LAST_COMMIT_MESSAGE" value="office commit" />
++  </component>
+ </project>
+\ No newline at end of file
