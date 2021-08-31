@@ -8,8 +8,11 @@ import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {addFile, removeFile, setFileStatus} from "../../features/fileSlice/fileSlice";
+import Button from "@material-ui/core/Button";
+import DescriptionIcon from "@material-ui/icons/Description";
+import FolderIcon from "@material-ui/icons/Folder";
 
 
 const SubFiles = () => {
@@ -23,10 +26,18 @@ const SubFiles = () => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault()
-        dispatch(addFile(name, folderId))
+        dispatch(addFile(name, true,  folderId))
+    }
+
+    const handleFileSubmit = async (e: any) => {
+        e.preventDefault()
+        dispatch(addFile(name, false, folderId))
     }
 
     const filteredArraySecond = todoList.files.filter((data: any) => data.parent === folderId)
+
+    // this is to go back function
+    const history = useHistory();
 
 
     return (
@@ -41,12 +52,29 @@ const SubFiles = () => {
                         onChange={e => setName(e.target.value)}
                     />
                 </form>
-                <button onClick={handleSubmit} type="submit">
+                <Button
+                    onClick={handleSubmit}
+                    type="submit"
+                    variant="contained"
+                    color="default"
+                >
                     Add Folder
-                </button>
+                </Button>
+
+                <Button
+                    onClick={handleFileSubmit}
+                    variant="contained"
+                    color="default"
+                    type="submit"
+                    startIcon={<DescriptionIcon/>}
+                >
+                    Create File
+                </Button>
             </div>
 
+            <a onClick={() => history.goBack()}>...</a>
             <List>
+
                 {filteredArraySecond.map((file: any) => (
                     <>
                         <Link to={`/folder/${file.id}`}>
@@ -56,7 +84,30 @@ const SubFiles = () => {
                                         textDecoration: file.completed ? "line-through" : "none",
                                     }}
                                 >
-                                    {file.description}
+
+                                    {file.type === true ? (
+                                        <Link to={`/folder/${file.id}`} style={{
+                                            textDecoration: "none",
+                                            color: "black"
+                                        }}>
+                                            <div className="folder">
+                                                <FolderIcon/>
+                                                <p>{file.description}</p>
+                                            </div>
+                                        </Link>
+
+                                    ):(
+                                        <Link to={`/file/${file.id}`} style={{
+                                            textDecoration: "none",
+                                            color: "black"
+                                        }}>
+                                            <div className="folder">
+                                                <DescriptionIcon/>
+                                                <p>{file.description}</p>
+                                            </div>
+                                        </Link>
+
+                                    )}
                                 </ListItemText>
                                 <ListItemSecondaryAction>
                                     <IconButton

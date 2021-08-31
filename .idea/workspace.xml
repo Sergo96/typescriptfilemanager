@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78ff941b-1f9e-4e9b-be46-4c2e3347cac3" name="Changes" comment="office commit">
-      <change afterPath="$PROJECT_DIR$/src/pages/FileText/FileText.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_31_2021_10_14_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_31_2021_10_14_AM__Changes_.xml" afterDir="false" />
+    <list default="true" id="78ff941b-1f9e-4e9b-be46-4c2e3347cac3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/FileText/FileText.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/action-types.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/fileSlice/fileActions.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/SubFiles/SubFiles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SubFiles/SubFiles.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,8 +26,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/App.tsx" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/app/hooks.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/app/store.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/app/hooks.ts" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1xLsSQNIp0rgso4fzjtJMRt0oir" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -53,7 +44,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="C:\Users\Doc\WebstormProjects\typescriptfilemanager\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -83,7 +74,7 @@
       <workItem from="1630303232726" duration="33000" />
       <workItem from="1630303284799" duration="33000" />
       <workItem from="1630303320815" duration="22416000" />
-      <workItem from="1630406318076" duration="10013000" />
+      <workItem from="1630347901756" duration="6246000" />
     </task>
     <servers />
   </component>

@@ -13,7 +13,6 @@ import {auth, provider} from "./firebase";
 import {useDispatch, useSelector} from "react-redux";
 import {
     setActiveUser,
-    setUserLogOutState,
     selectUserName,
 } from "./features/userSlice/userSlice";
 
@@ -32,14 +31,7 @@ function App() {
         });
     };
 
-    const handleSignOut = () => {
-        auth
-            .signOut()
-            .then(() => {
-                dispatch(setUserLogOutState());
-            })
-            .catch((err) => alert(err.message));
-    };
+
 
 
     return (
@@ -49,7 +41,6 @@ function App() {
                     {userName ? (
                         <>
                             <Header/>
-                            <button onClick={handleSignOut}>Sign out</button>
                             <Route exact path="/" component={Dashboard}/>
                             <Route exact path="/folder/:folderId" component={SubFiles}/>
                             <Route exact path="/file/:fileId" component={FileText}/>
