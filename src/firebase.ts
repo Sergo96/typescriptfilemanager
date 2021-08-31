@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore, collection, getDocs, addDoc, doc, setDoc  } from 'firebase/firestore/lite';
+import { getFirestore, collection, doc, setDoc  } from 'firebase/firestore/lite';
 import {getAuth, GoogleAuthProvider} from "firebase/auth";
 import {getStorage} from "firebase/storage";
 
@@ -39,7 +39,6 @@ export const database  = {
     formatDoc: (doc:any) => {
         return {id: doc.id, ...doc.data()};
     },
-    // docRef: (document:any) => addDoc(collection(db, "folders"), {id: document.id, ...document.data()}),
     docRef: (document:any) => setDoc(newCityRef, document.data()),
     folders: collection(db, "folders"),
     files: collection(db ,"files"),

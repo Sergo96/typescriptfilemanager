@@ -1,16 +1,13 @@
 import React from 'react';
 
-import './App.css';
 
 import Header from "./Components/Header/Header";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import SubFiles from "./pages/SubFiles/SubFiles";
+import FileText from "./pages/FileText/FileText";
 
 import {signInWithPopup} from "firebase/auth";
-
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
-
-
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {auth, provider} from "./firebase";
 
 import {useDispatch, useSelector} from "react-redux";
@@ -18,12 +15,10 @@ import {
     setActiveUser,
     setUserLogOutState,
     selectUserName,
-    // selectUserEmail,
 } from "./features/userSlice/userSlice";
 
 function App() {
     const dispatch = useDispatch();
-
     const userName = useSelector(selectUserName);
 
     const handleSignIn = () => {
@@ -45,6 +40,8 @@ function App() {
             })
             .catch((err) => alert(err.message));
     };
+
+
     return (
         <Router>
             <Switch>
@@ -55,16 +52,14 @@ function App() {
                             <button onClick={handleSignOut}>Sign out</button>
                             <Route exact path="/" component={Dashboard}/>
                             <Route exact path="/folder/:folderId" component={SubFiles}/>
+                            <Route exact path="/file/:fileId" component={FileText}/>
                         </>
                     ) : (
                         <button onClick={handleSignIn}>Sign in</button>
                     )}
-
                 </div>
             </Switch>
-
         </Router>
-
     );
 }
 

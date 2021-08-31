@@ -6,6 +6,7 @@ interface File {
     description: string;
     completed: boolean;
     parent: number;
+    type: boolean;
 }
 
 const initialState = [] as File[];
@@ -19,12 +20,13 @@ const fileSlice = createSlice({
             reducer: (state, action: PayloadAction<File>) => {
                 state.push(action.payload);
             },
-            prepare: (description: string, parent?: string | number) => ({
+            prepare: (description: string, type: boolean,  parent?: string | number) => ({
                 payload: {
                     id: Date.now(),
                     description,
                     completed: false,
                     parent : parent,
+                    type: type
                 } as File,
             }),
         },
