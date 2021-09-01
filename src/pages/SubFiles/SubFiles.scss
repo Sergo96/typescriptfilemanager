@@ -7,3 +7,12 @@
   margin-left: 20px;
   cursor: pointer;
 }
+
+.folders{
+  display: flex;
+  align-items: center;
+
+  .p{
+    text-decoration: none;
+  }
+}

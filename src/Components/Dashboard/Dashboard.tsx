@@ -100,7 +100,7 @@ export default function Dashboard() {
                                         color: "black"
                                     }}>
                                         <div className="folder">
-                                            <FolderIcon/>
+                                            <FolderIcon color={"primary"}/>
                                             <p>{file.description}</p>
                                         </div>
                                     </Link>
@@ -111,7 +111,7 @@ export default function Dashboard() {
                                         color: "black"
                                     }}>
                                         <div className="folder">
-                                            <DescriptionIcon/>
+                                            <DescriptionIcon color={"action"}/>
                                             <p>{file.description}</p>
                                         </div>
                                     </Link>

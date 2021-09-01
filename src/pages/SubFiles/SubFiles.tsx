@@ -101,8 +101,8 @@ const SubFiles = () => {
                                             textDecoration: "none",
                                             color: "black"
                                         }}>
-                                            <div className="folder">
-                                                <FolderIcon/>
+                                            <div className="folders">
+                                                <FolderIcon color={"primary"}/>
                                                 <p>{file.description}</p>
                                             </div>
                                         </Link>
@@ -112,9 +112,9 @@ const SubFiles = () => {
                                             textDecoration: "none",
                                             color: "black"
                                         }}>
-                                            <div className="folder">
-                                                <DescriptionIcon/>
-                                                <p>{file.description}</p>
+                                            <div className="folders">
+                                                <DescriptionIcon color={"action"}/>
+                                                <p >{file.description}</p>
                                             </div>
                                         </Link>
 
