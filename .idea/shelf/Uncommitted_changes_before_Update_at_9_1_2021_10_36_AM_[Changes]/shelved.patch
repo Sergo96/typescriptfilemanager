@@ -1,0 +1,146 @@
+Index: src/Components/Dashboard/Dashboard.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from \"react\";\r\nimport \"./Dashboard.scss\";\r\n\r\nimport {useSelector, useDispatch} from 'react-redux'\r\n\r\n\r\nimport {addFile, removeFile, setFileStatus} from \"../../features/fileSlice/fileSlice\";\r\nimport {RootState} from \"../../app/store\";\r\n\r\nimport {Link} from \"react-router-dom\";\r\n\r\nimport List from \"@material-ui/core/List\";\r\nimport ListItem from \"@material-ui/core/ListItem\";\r\nimport ListItemText from \"@material-ui/core/ListItemText\";\r\nimport ListItemSecondaryAction from \"@material-ui/core/ListItemSecondaryAction\";\r\nimport Checkbox from \"@material-ui/core/Checkbox\";\r\nimport IconButton from \"@material-ui/core/IconButton\";\r\nimport DeleteIcon from \"@material-ui/icons/Delete\";\r\nimport DescriptionIcon from '@material-ui/icons/Description';\r\n\r\n\r\nimport TextField from '@material-ui/core/TextField';\r\nimport Button from '@material-ui/core/Button';\r\n\r\n\r\nimport FolderIcon from '@material-ui/icons/Folder';\r\n\r\n\r\nexport default function Dashboard() {\r\n\r\n\r\n    const [name, setName] = React.useState<string>(\"\");\r\n\r\n\r\n    const {userEmail} = useSelector((state: any) => state.user);\r\n    const todoList = useSelector((state: RootState) => state);\r\n\r\n    console.log(todoList)\r\n\r\n\r\n\r\n\r\n    console.log(userEmail)\r\n\r\n    const dispatch = useDispatch();\r\n\r\n\r\n    const handleSubmit = async (e: any) => {\r\n        e.preventDefault()\r\n        dispatch(addFile(name, true))\r\n    }\r\n\r\n    const handleFileSubmit = async (e: any) => {\r\n        e.preventDefault()\r\n        dispatch(addFile(name, false))\r\n    }\r\n\r\n\r\n    const filteredArr = todoList.files.filter((data: any) => data.parent === undefined)\r\n\r\n    return (\r\n        <>\r\n            <div>\r\n                <form className={\"form__style\"}>\r\n                    <form>\r\n                        <TextField\r\n                            type=\"text\"\r\n                            required\r\n                            value={name}\r\n                            onChange={(e) => setName(e.target.value)}\r\n                            label={\"Name of the File\"}\r\n\r\n                        />\r\n                    </form>\r\n                    <Button\r\n                        onClick={handleSubmit}\r\n                        variant=\"contained\"\r\n                        color=\"default\"\r\n                        type=\"submit\"\r\n                        startIcon={<FolderIcon/>}\r\n                    >\r\n                        Create Folder\r\n                    </Button>\r\n                    <Button\r\n                        onClick={handleFileSubmit}\r\n                        variant=\"contained\"\r\n                        color=\"default\"\r\n                        type=\"submit\"\r\n                        startIcon={<DescriptionIcon/>}\r\n                    >\r\n                        Create File\r\n                    </Button>\r\n                </form>\r\n\r\n                <List>\r\n                    {filteredArr.map((file: any) => (\r\n\r\n                        <ListItem key={file.id}>\r\n                            <ListItemText\r\n                                style={{\r\n                                    textDecoration: file.completed ? \"line-through\" : \"none\",\r\n                                }}\r\n                            >\r\n                                {file.type === true ? (\r\n                                    <Link to={`/folder/${file.id}`} style={{\r\n                                        textDecoration: \"none\",\r\n                                        color: \"black\"\r\n                                    }}>\r\n                                        <div className=\"folder\">\r\n                                            <FolderIcon/>\r\n                                            <p>{file.description}</p>\r\n                                        </div>\r\n                                    </Link>\r\n\r\n                                ) : (\r\n                                    <Link to={`/file/${file.id}`} style={{\r\n                                        textDecoration: \"none\",\r\n                                        color: \"black\"\r\n                                    }}>\r\n                                        <div className=\"folder\">\r\n                                            <DescriptionIcon/>\r\n                                            <p>{file.description}</p>\r\n                                        </div>\r\n                                    </Link>\r\n                                )}\r\n\r\n\r\n                            </ListItemText>\r\n                            <ListItemSecondaryAction>\r\n                                <IconButton\r\n                                    onClick={() => {\r\n                                        dispatch(removeFile(file.id));\r\n                                    }}\r\n                                >\r\n                                    <DeleteIcon/>\r\n                                </IconButton>\r\n                                <Checkbox\r\n                                    edge=\"end\"\r\n                                    value={file.completed}\r\n                                    onChange={() => {\r\n                                        dispatch(\r\n                                            setFileStatus({completed: !file.completed, id: file.id})\r\n                                        );\r\n                                    }}\r\n                                />\r\n                            </ListItemSecondaryAction>\r\n                        </ListItem>\r\n                    ))}\r\n                </List>\r\n            </div>\r\n        </>\r\n    )\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Components/Dashboard/Dashboard.tsx b/src/Components/Dashboard/Dashboard.tsx
+--- a/src/Components/Dashboard/Dashboard.tsx	(revision 6a8c1aa02bb418d1dc812fab698593bd26f68e7e)
++++ b/src/Components/Dashboard/Dashboard.tsx	(date 1630421080022)
+@@ -1,46 +1,31 @@
+ import React from "react";
+ import "./Dashboard.scss";
+-
+-import {useSelector, useDispatch} from 'react-redux'
+-
+-
++import {useSelector, useDispatch} from 'react-redux';
+ import {addFile, removeFile, setFileStatus} from "../../features/fileSlice/fileSlice";
+ import {RootState} from "../../app/store";
+-
+ import {Link} from "react-router-dom";
+-
+-import List from "@material-ui/core/List";
+-import ListItem from "@material-ui/core/ListItem";
+-import ListItemText from "@material-ui/core/ListItemText";
+-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+-import Checkbox from "@material-ui/core/Checkbox";
+-import IconButton from "@material-ui/core/IconButton";
++import {
++    List,
++    ListItem,
++    ListItemText,
++    ListItemSecondaryAction,
++    Checkbox,
++    IconButton,
++    Button,
++    TextField
++} from "@material-ui/core";
+ import DeleteIcon from "@material-ui/icons/Delete";
+ import DescriptionIcon from '@material-ui/icons/Description';
+-
+-
+-import TextField from '@material-ui/core/TextField';
+-import Button from '@material-ui/core/Button';
+-
+-
+ import FolderIcon from '@material-ui/icons/Folder';
+ 
+ 
+ export default function Dashboard() {
+-
+-
+     const [name, setName] = React.useState<string>("");
+ 
+ 
+-    const {userEmail} = useSelector((state: any) => state.user);
++    // const {userEmail} = useSelector((state: any) => state.user);
+     const todoList = useSelector((state: RootState) => state);
+ 
+-    console.log(todoList)
+-
+-
+-
+-
+-    console.log(userEmail)
+ 
+     const dispatch = useDispatch();
+ 
+@@ -69,7 +54,6 @@
+                             value={name}
+                             onChange={(e) => setName(e.target.value)}
+                             label={"Name of the File"}
+-
+                         />
+                     </form>
+                     <Button
+@@ -94,7 +78,6 @@
+ 
+                 <List>
+                     {filteredArr.map((file: any) => (
+-
+                         <ListItem key={file.id}>
+                             <ListItemText
+                                 style={{
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"78ff941b-1f9e-4e9b-be46-4c2e3347cac3\" name=\"Changes\" comment=\"office commit\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/pages/FileText/FileText.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_31_2021_10_14_AM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_31_2021_10_14_AM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/App.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/pages/FileText/FileText.scss\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/App.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/App.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Components/Header/Header.scss\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Components/Header/Header.scss\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Components/Header/Header.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Components/Header/Header.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/features/action-types.ts\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/features/fileSlice/fileActions.ts\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/firebase.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/firebase.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/index.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/index.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/pages/SubFiles/SubFiles.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/pages/SubFiles/SubFiles.tsx\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"TypeScript File\" />\r\n        <option value=\"TypeScript JSX File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/src/App.tsx\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/src/app/hooks.ts\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/src/app/store.ts\" root0=\"FORCE_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1xLsSQNIp0rgso4fzjtJMRt0oir\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_interpreter_path\" value=\"node\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"yarn\" />\r\n    <property name=\"ts.external.directory.path\" value=\"C:\\Users\\Doc\\WebstormProjects\\typescriptfilemanager\\node_modules\\typescript\\lib\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"npm.npm start\">\r\n    <configuration name=\"Debug Application\" type=\"JavascriptDebugType\" uri=\"http://localhost:3000\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"npm start\" type=\"js.build_tools.npm\">\r\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\r\n      <command value=\"run\" />\r\n      <scripts>\r\n        <script value=\"start\" />\r\n      </scripts>\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"78ff941b-1f9e-4e9b-be46-4c2e3347cac3\" name=\"Changes\" comment=\"\" />\r\n      <created>1630145701878</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1630145701878</updated>\r\n      <workItem from=\"1630145703278\" duration=\"2425000\" />\r\n      <workItem from=\"1630303232726\" duration=\"33000\" />\r\n      <workItem from=\"1630303284799\" duration=\"33000\" />\r\n      <workItem from=\"1630303320815\" duration=\"22416000\" />\r\n      <workItem from=\"1630406318076\" duration=\"10013000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 6a8c1aa02bb418d1dc812fab698593bd26f68e7e)
++++ b/.idea/workspace.xml	(date 1630478207958)
+@@ -1,21 +1,8 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="78ff941b-1f9e-4e9b-be46-4c2e3347cac3" name="Changes" comment="office commit">
+-      <change afterPath="$PROJECT_DIR$/src/pages/FileText/FileText.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_31_2021_10_14_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_31_2021_10_14_AM__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/FileText/FileText.scss" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
++    <list default="true" id="78ff941b-1f9e-4e9b-be46-4c2e3347cac3" name="Changes" comment="office third commit">
+       <change beforePath="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.scss" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/features/action-types.ts" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/features/fileSlice/fileActions.ts" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/firebase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/pages/SubFiles/SubFiles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SubFiles/SubFiles.tsx" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -83,8 +70,16 @@
+       <workItem from="1630303232726" duration="33000" />
+       <workItem from="1630303284799" duration="33000" />
+       <workItem from="1630303320815" duration="22416000" />
+-      <workItem from="1630406318076" duration="10013000" />
++      <workItem from="1630406318076" duration="10684000" />
++    </task>
++    <task id="LOCAL-00001" summary="office third commit">
++      <created>1630420729686</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1630420729686</updated>
+     </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -102,4 +97,8 @@
+     </option>
+     <option name="oldMeFiltersMigrated" value="true" />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="office third commit" />
++    <option name="LAST_COMMIT_MESSAGE" value="office third commit" />
++  </component>
+ </project>
+\ No newline at end of file
