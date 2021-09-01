@@ -1,58 +1,53 @@
 import React from "react";
 import "./Dashboard.scss";
-
-import {useSelector, useDispatch} from 'react-redux'
-
-
+import {useSelector, useDispatch} from 'react-redux';
 import {addFile, removeFile, setFileStatus} from "../../features/fileSlice/fileSlice";
 import {RootState} from "../../app/store";
-
 import {Link} from "react-router-dom";
-
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import Checkbox from "@material-ui/core/Checkbox";
-import IconButton from "@material-ui/core/IconButton";
+import {
+    List,
+    ListItem,
+    ListItemText,
+    ListItemSecondaryAction,
+    Checkbox,
+    IconButton,
+    Button,
+    TextField
+} from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import DescriptionIcon from '@material-ui/icons/Description';
-
-
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-
-
 import FolderIcon from '@material-ui/icons/Folder';
 
 
 export default function Dashboard() {
-
-
     const [name, setName] = React.useState<string>("");
 
 
-    const {userEmail} = useSelector((state: any) => state.user);
+    // const {userEmail} = useSelector((state: any) => state.user);
     const todoList = useSelector((state: RootState) => state);
 
-    console.log(todoList)
-
-
-
-
-    console.log(userEmail)
 
     const dispatch = useDispatch();
 
 
     const handleSubmit = async (e: any) => {
         e.preventDefault()
-        dispatch(addFile(name, true))
+        const folderName = todoList.files.find(file => file.description === name && file.type === true)
+        if (folderName) {
+            alert('already exist')
+        } else {
+            dispatch(addFile(name, true))
+        }
     }
 
     const handleFileSubmit = async (e: any) => {
         e.preventDefault()
-        dispatch(addFile(name, false))
+        const fileName = todoList.files.find(file => file.description === name && file.type === false)
+        if (fileName) {
+            alert('already exist')
+        } else {
+            dispatch(addFile(name, false))
+        }
     }
 
 
@@ -69,7 +64,6 @@ export default function Dashboard() {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             label={"Name of the File"}
-
                         />
                     </form>
                     <Button
@@ -94,7 +88,6 @@ export default function Dashboard() {
 
                 <List>
                     {filteredArr.map((file: any) => (
-
                         <ListItem key={file.id}>
                             <ListItemText
                                 style={{

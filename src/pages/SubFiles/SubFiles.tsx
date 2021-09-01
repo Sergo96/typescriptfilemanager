@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux';
 import {RootState} from "../../app/store";
 
-import {List, ListItem, ListItemText, ListItemSecondaryAction} from "@material-ui/core";
+import {List, ListItem, ListItemText, ListItemSecondaryAction, TextField} from "@material-ui/core";
 import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -13,6 +13,8 @@ import {addFile, removeFile, setFileStatus} from "../../features/fileSlice/fileS
 import Button from "@material-ui/core/Button";
 import DescriptionIcon from "@material-ui/icons/Description";
 import FolderIcon from "@material-ui/icons/Folder";
+
+import "./SubFiles.scss"
 
 
 const SubFiles = () => {
@@ -26,12 +28,22 @@ const SubFiles = () => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault()
-        dispatch(addFile(name, true,  folderId))
+        const folderName = todoList.files.find(file => file.description === name && file.type === true)
+        if (folderName) {
+            alert('already exist')
+        } else {
+            dispatch(addFile(name, true, folderId))
+        }
     }
 
     const handleFileSubmit = async (e: any) => {
         e.preventDefault()
-        dispatch(addFile(name, false, folderId))
+        const fileName = todoList.files.find(file => file.description === name && file.type === false)
+        if (fileName) {
+            alert('already exist')
+        } else {
+            dispatch(addFile(name, false, folderId))
+        }
     }
 
     const filteredArraySecond = todoList.files.filter((data: any) => data.parent === folderId)
@@ -42,14 +54,13 @@ const SubFiles = () => {
 
     return (
         <>
-            <div>
+            <div className={"subfilesForm"}>
                 <form>
-                    <label>Folder Name</label>
-                    <input
+                    <TextField
                         type="text"
                         required
                         value={name}
-                        onChange={e => setName(e.target.value)}
+                        onChange={(e: any) => setName(e.target.value)} id="standard-basic" label="Create Files"
                     />
                 </form>
                 <Button
@@ -72,7 +83,7 @@ const SubFiles = () => {
                 </Button>
             </div>
 
-            <a onClick={() => history.goBack()}>...</a>
+            <p className={"backHistory"} onClick={() => history.goBack()}>...</p>
             <List>
 
                 {filteredArraySecond.map((file: any) => (
@@ -96,7 +107,7 @@ const SubFiles = () => {
                                             </div>
                                         </Link>
 
-                                    ):(
+                                    ) : (
                                         <Link to={`/file/${file.id}`} style={{
                                             textDecoration: "none",
                                             color: "black"

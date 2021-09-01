@@ -16,6 +16,8 @@ import {
     selectUserName,
 } from "./features/userSlice/userSlice";
 
+import "./App.scss";
+
 function App() {
     const dispatch = useDispatch();
     const userName = useSelector(selectUserName);
@@ -46,7 +48,9 @@ function App() {
                             <Route exact path="/file/:fileId" component={FileText}/>
                         </>
                     ) : (
-                        <button onClick={handleSignIn}>Sign in</button>
+                        <div className={"signIn"}>
+                            <button onClick={handleSignIn}>Sign in</button>
+                        </div>
                     )}
                 </div>
             </Switch>
