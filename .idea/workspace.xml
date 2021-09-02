@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78ff941b-1f9e-4e9b-be46-4c2e3347cac3" name="Changes" comment="office fifth commit">
-      <change afterPath="$PROJECT_DIR$/src/features/trashSlice/trashSlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/TrashBin/TrashBin.tsx" afterDir="false" />
+    <list default="true" id="78ff941b-1f9e-4e9b-be46-4c2e3347cac3" name="Changes" comment="office sixth commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/SubFiles/SubFiles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SubFiles/SubFiles.tsx" afterDir="false" />
     </list>
@@ -82,7 +76,7 @@
       <workItem from="1630481371382" duration="4833000" />
       <workItem from="1630563549871" duration="1354000" />
       <workItem from="1630566251817" duration="612000" />
-      <workItem from="1630571557180" duration="7098000" />
+      <workItem from="1630571557180" duration="12994000" />
     </task>
     <task id="LOCAL-00001" summary="office forth commit">
       <created>1630480836289</created>
@@ -105,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630508046875</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="office sixth commit">
+      <created>1630578807531</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1630578807532</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +127,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="office forth commit" />
     <MESSAGE value="office fifth commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="office fifth commit" />
+    <MESSAGE value="office sixth commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="office sixth commit" />
   </component>
 </project>

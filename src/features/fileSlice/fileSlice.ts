@@ -7,6 +7,7 @@ interface File {
     completed: boolean;
     parent: number;
     type: boolean;
+    children: string[] | number[];
 }
 
 const initialState = [] as File[];
@@ -30,14 +31,7 @@ const fileSlice = createSlice({
                 } as File,
             }),
         },
-        pushFilesIntoBin(state, action: PayloadAction<File>) {
-            // const index = state.findIndex((file:any) => file.id === action.payload)
-            // state[index].completed = action.payload.completed;
-            // state[index].deletedFiles = action.payload.deletedFiles
-            // deletedFiles.push(index, 1)
-            // state[index].splice(index, 1);
-            // // state[index] = [...state, ...payload.deletedFiles]
-        },
+
         removeFile(state, action: PayloadAction<string>) {
             const index = state.findIndex((file) => file.id === action.payload);
             state.splice(index, 1);
@@ -64,6 +58,6 @@ const fileSlice = createSlice({
     },
 });
 
-export const {addFile, removeFile, setFileStatus, updateFile, pushFilesIntoBin} = fileSlice.actions;
+export const {addFile, removeFile, setFileStatus, updateFile} = fileSlice.actions;
 export default fileSlice.reducer;
 

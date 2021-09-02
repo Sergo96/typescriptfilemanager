@@ -25,6 +25,16 @@ const SubFiles = () => {
 
 
     const [name, setName] = React.useState<string>("");
+    const [directoryName, setDirectoryName] = React.useState<any[]>([]);
+
+    console.log('directory name ---- ',directoryName)
+
+
+    // setDirectoryName(todoList.files)
+
+    const addEntryClick = (newElement:string, id:string) => {
+        setDirectoryName([...directoryName, {id, newElement}]);
+    };
 
 
     const handleSubmit = async (e: any) => {
@@ -34,6 +44,7 @@ const SubFiles = () => {
             alert('already exist')
         } else {
             dispatch(addFile(name, true, folderId))
+            addEntryClick(name, folderId)
         }
     }
 
@@ -48,6 +59,28 @@ const SubFiles = () => {
     }
 
     const filteredArraySecond = todoList.files.filter((data: any) => data.parent === folderId);
+
+
+
+
+    // let previous=todoList.files[i==0?array.length-1:i-1];
+    // let current=todoList.files[i];
+    // let next=todoList.files[i==array.length-1?0:i+1];
+
+    // function filterFiles(arr, name) {
+    //     return arr.map(obj => {
+    //         return {
+    //             ...obj,
+    //             "users": obj.users.filter(user => user.name === name)
+    //         };
+    //     });
+    // }
+    //
+    // console.log(filterUsers(arr, "Mike"));
+
+    // const lineArray = todoList.files.filter((data:any) => data.id === data.parent)
+    //
+    // console.log(lineArray)
 
 
 
