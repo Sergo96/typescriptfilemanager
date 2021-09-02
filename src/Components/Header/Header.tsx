@@ -1,10 +1,11 @@
 import React from "react";
 import "./Header.scss";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {auth} from "../../firebase";
 import {setUserLogOutState} from "../../features/userSlice/userSlice";
 import {useDispatch} from "react-redux";
-import {Button} from "@material-ui/core";
+import {Button, IconButton} from "@material-ui/core";
+import {DeleteSharp} from '@material-ui/icons';
 
 
 
@@ -14,6 +15,11 @@ const Header = () => {
 
     const dispatch = useDispatch()
 
+    let history = useHistory();
+
+    function handlePushIntoTrashClick() {
+        history.push("/trashBin");
+    }
     const handleSignOut = () => {
         auth
             .signOut()
@@ -36,6 +42,11 @@ const Header = () => {
                 </Link>
 
             </div>
+
+            <IconButton onClick={handlePushIntoTrashClick} aria-label="delete">
+                <DeleteSharp fontSize="large" />
+            </IconButton>
+
             <Button onClick={handleSignOut} variant="contained" color="primary">
                 Log Out
             </Button>

@@ -2,6 +2,7 @@ import React from "react";
 import "./Dashboard.scss";
 import {useSelector, useDispatch} from 'react-redux';
 import {addFile, removeFile, setFileStatus} from "../../features/fileSlice/fileSlice";
+import {addFileIntoTrashBin} from "../../features/trashSlice/trashSlice";
 import {RootState} from "../../app/store";
 import {Link} from "react-router-dom";
 import {
@@ -25,6 +26,10 @@ export default function Dashboard() {
 
     // const {userEmail} = useSelector((state: any) => state.user);
     const todoList = useSelector((state: RootState) => state);
+
+
+
+    console.log(todoList)
 
 
     const dispatch = useDispatch();
@@ -51,7 +56,7 @@ export default function Dashboard() {
     }
 
 
-    const filteredArr = todoList.files.filter((data: any) => data.parent === undefined)
+    const filteredArr = todoList?.files.filter((data: any) => data?.parent === undefined)
 
     return (
         <>
@@ -88,10 +93,10 @@ export default function Dashboard() {
 
                 <List>
                     {filteredArr.map((file: any) => (
-                        <ListItem key={file.id}>
+                        <ListItem key={file?.id}>
                             <ListItemText
                                 style={{
-                                    textDecoration: file.completed ? "line-through" : "none",
+                                    textDecoration: file?.completed ? "line-through" : "none",
                                 }}
                             >
                                 {file.type === true ? (
@@ -121,8 +126,13 @@ export default function Dashboard() {
                             </ListItemText>
                             <ListItemSecondaryAction>
                                 <IconButton
+                                    // onClick={() => {
+                                    //     dispatch(removeFile(file.id));
+                                    // }}
+
                                     onClick={() => {
                                         dispatch(removeFile(file.id));
+                                        dispatch(addFileIntoTrashBin(file));
                                     }}
                                 >
                                     <DeleteIcon/>

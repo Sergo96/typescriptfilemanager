@@ -20,15 +20,23 @@ const fileSlice = createSlice({
             reducer: (state, action: PayloadAction<File>) => {
                 state.push(action.payload);
             },
-            prepare: (description: string, type: boolean,  parent?: string | number) => ({
+            prepare: (description: string, type: boolean, parent?: string | number) => ({
                 payload: {
                     id: Date.now(),
                     description,
                     completed: false,
-                    parent : parent,
+                    parent: parent,
                     type: type
                 } as File,
             }),
+        },
+        pushFilesIntoBin(state, action: PayloadAction<File>) {
+            // const index = state.findIndex((file:any) => file.id === action.payload)
+            // state[index].completed = action.payload.completed;
+            // state[index].deletedFiles = action.payload.deletedFiles
+            // deletedFiles.push(index, 1)
+            // state[index].splice(index, 1);
+            // // state[index] = [...state, ...payload.deletedFiles]
         },
         removeFile(state, action: PayloadAction<string>) {
             const index = state.findIndex((file) => file.id === action.payload);
@@ -56,45 +64,6 @@ const fileSlice = createSlice({
     },
 });
 
-export const {addFile, removeFile, setFileStatus, updateFile} = fileSlice.actions;
+export const {addFile, removeFile, setFileStatus, updateFile, pushFilesIntoBin} = fileSlice.actions;
 export default fileSlice.reducer;
 
-
-//
-// interface FileState {
-//     folderId: number | string;
-//     folder: any;
-//     childFolders: any[];
-//     childFiles: any[];
-// }
-//
-// const initialState =[] as FileState[] ;
-//
-// const fileSlice = createSlice({
-//     name: "file",
-//     initialState,
-//     reducers: {
-//         addFolder:{
-//             reducer: (state:any, action:PayloadAction<FileState>) => {
-//                 state.push(action.payload);
-//             },
-//
-//             prepare: (description: string) => ({
-//                 payload: {
-//                     id: uuidv4(),
-//                     description,
-//                     completed: false,
-//                 } as Todo,
-//             }),
-//         } ,
-//
-//
-//
-//         addFile: (state, action) => {
-//
-//         }
-//     }
-// });
-//
-// export const {addFolder, addFile} = fileSlice.actions;
-// export default fileSlice.reducer;

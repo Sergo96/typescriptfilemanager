@@ -15,10 +15,11 @@ import DescriptionIcon from "@material-ui/icons/Description";
 import FolderIcon from "@material-ui/icons/Folder";
 
 import "./SubFiles.scss"
+import {addFileIntoTrashBin} from "../../features/trashSlice/trashSlice";
 
 
 const SubFiles = () => {
-    const {folderId} = useParams<any>();
+    const {folderId} = useParams<{folderId:any}>();
     const todoList = useSelector((state: RootState) => state);
     const dispatch = useDispatch()
 
@@ -46,7 +47,9 @@ const SubFiles = () => {
         }
     }
 
-    const filteredArraySecond = todoList.files.filter((data: any) => data.parent === folderId)
+    const filteredArraySecond = todoList.files.filter((data: any) => data.parent === folderId);
+
+
 
     // this is to go back function
     const history = useHistory();
@@ -124,6 +127,8 @@ const SubFiles = () => {
                                     <IconButton
                                         onClick={() => {
                                             dispatch(removeFile(file.id));
+                                            dispatch(addFileIntoTrashBin(file));
+
                                         }}
                                     >
                                         <DeleteIcon/>

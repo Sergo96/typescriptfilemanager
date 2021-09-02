@@ -5,6 +5,7 @@ import Header from "./Components/Header/Header";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import SubFiles from "./pages/SubFiles/SubFiles";
 import FileText from "./pages/FileText/FileText";
+import TrashBin from "./pages/TrashBin/TrashBin";
 
 import {signInWithPopup} from "firebase/auth";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
@@ -46,6 +47,7 @@ function App() {
                             <Route exact path="/" component={Dashboard}/>
                             <Route exact path="/folder/:folderId" component={SubFiles}/>
                             <Route exact path="/file/:fileId" component={FileText}/>
+                            <Route exact path="/trashBin" component={TrashBin}/>
                         </>
                     ) : (
                         <div className={"signIn"}>
