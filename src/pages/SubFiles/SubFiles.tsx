@@ -16,25 +16,16 @@ import FolderIcon from "@material-ui/icons/Folder";
 
 import "./SubFiles.scss"
 import {addFileIntoTrashBin} from "../../features/trashSlice/trashSlice";
+import {addFileIntoDirectoryArr} from "../../features/directorySlice/directorySlice";
 
 
 const SubFiles = () => {
-    const {folderId} = useParams<{folderId:any}>();
+    const {folderId} = useParams<{ folderId: any }>();
     const todoList = useSelector((state: RootState) => state);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
 
     const [name, setName] = React.useState<string>("");
-    const [directoryName, setDirectoryName] = React.useState<any[]>([]);
-
-    console.log('directory name ---- ',directoryName)
-
-
-    // setDirectoryName(todoList.files)
-
-    const addEntryClick = (newElement:string, id:string) => {
-        setDirectoryName([...directoryName, {id, newElement}]);
-    };
 
 
     const handleSubmit = async (e: any) => {
@@ -44,7 +35,7 @@ const SubFiles = () => {
             alert('already exist')
         } else {
             dispatch(addFile(name, true, folderId))
-            addEntryClick(name, folderId)
+            // addDirectory()
         }
     }
 
@@ -61,32 +52,20 @@ const SubFiles = () => {
     const filteredArraySecond = todoList.files.filter((data: any) => data.parent === folderId);
 
 
-
-
-    // let previous=todoList.files[i==0?array.length-1:i-1];
-    // let current=todoList.files[i];
-    // let next=todoList.files[i==array.length-1?0:i+1];
-
-    // function filterFiles(arr, name) {
-    //     return arr.map(obj => {
-    //         return {
-    //             ...obj,
-    //             "users": obj.users.filter(user => user.name === name)
-    //         };
-    //     });
-    // }
-    //
-    // console.log(filterUsers(arr, "Mike"));
-
-    // const lineArray = todoList.files.filter((data:any) => data.id === data.parent)
-    //
-    // console.log(lineArray)
-
-
-
     // this is to go back function
     const history = useHistory();
 
+
+    const addDirectory = () => {
+        const folder = todoList.files.find(item => item.id === folderId || item.id.toString() === folderId)
+        console.log('folder', folder)
+        if (!folder) return
+        const parent = todoList.files.find((item) => item.id.toString() === folder.id.toString())
+        console.log('parent', parent?.description)
+        // dispatch(addFileIntoDirectory(parent))
+        // const directoryArr = todoList.files.filter((item) => item.id.toString())
+        dispatch(addFileIntoDirectoryArr(folder?.id, folder?.description, folder?.parent))
+    }
 
     return (
         <>
@@ -125,13 +104,12 @@ const SubFiles = () => {
                 {filteredArraySecond.map((file: any) => (
                     <>
                         <Link to={`/folder/${file.id}`}>
-                            <ListItem key={file.id}>
+                            <ListItem key={file.id} onClick={addDirectory}>
                                 <ListItemText
                                     style={{
                                         textDecoration: file.completed ? "line-through" : "none",
                                     }}
                                 >
-
                                     {file.type === true ? (
                                         <Link to={`/folder/${file.id}`} style={{
                                             textDecoration: "none",
@@ -150,7 +128,7 @@ const SubFiles = () => {
                                         }}>
                                             <div className="folders">
                                                 <DescriptionIcon color={"action"}/>
-                                                <p >{file.description}</p>
+                                                <p>{file.description}</p>
                                             </div>
                                         </Link>
 
@@ -161,7 +139,6 @@ const SubFiles = () => {
                                         onClick={() => {
                                             dispatch(removeFile(file.id));
                                             dispatch(addFileIntoTrashBin(file));
-
                                         }}
                                     >
                                         <DeleteIcon/>

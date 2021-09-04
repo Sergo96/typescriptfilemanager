@@ -3,12 +3,14 @@ import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit';
 import userReducer from "../features/userSlice/userSlice";
 import fileReducer from "../features/fileSlice/fileSlice";
 import trashReducer from "../features/trashSlice/trashSlice";
+import directoryReducer from "../features/directorySlice/directorySlice";
 
 export const store = configureStore({
     reducer: {
         user: userReducer,
         files: fileReducer,
         trashFiles: trashReducer,
+        directoryFiles: directoryReducer,
     },
 });
 

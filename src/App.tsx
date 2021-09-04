@@ -18,6 +18,7 @@ import {
 } from "./features/userSlice/userSlice";
 
 import "./App.scss";
+import DirectBreadCrubs from "./Components/DirectBreadCrubs/DirectBreadCrubs";
 
 function App() {
     const dispatch = useDispatch();
@@ -44,6 +45,7 @@ function App() {
                     {userName ? (
                         <>
                             <Header/>
+                            <DirectBreadCrubs/>
                             <Route exact path="/" component={Dashboard}/>
                             <Route exact path="/folder/:folderId" component={SubFiles}/>
                             <Route exact path="/file/:fileId" component={FileText}/>

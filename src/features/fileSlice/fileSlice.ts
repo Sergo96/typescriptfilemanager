@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 
-interface File {
+export interface iFile {
     id: number | string;
     description: string;
     completed: boolean;
@@ -10,7 +10,7 @@ interface File {
     children: string[] | number[];
 }
 
-const initialState = [] as File[];
+const initialState = [] as iFile[];
 
 
 const fileSlice = createSlice({
@@ -18,7 +18,7 @@ const fileSlice = createSlice({
     initialState,
     reducers: {
         addFile: {
-            reducer: (state, action: PayloadAction<File>) => {
+            reducer: (state, action: PayloadAction<iFile>) => {
                 state.push(action.payload);
             },
             prepare: (description: string, type: boolean, parent?: string | number) => ({
@@ -28,7 +28,7 @@ const fileSlice = createSlice({
                     completed: false,
                     parent: parent,
                     type: type
-                } as File,
+                } as iFile,
             }),
         },
 
@@ -55,6 +55,11 @@ const fileSlice = createSlice({
             const index = state.findIndex((file) => file.id === action.payload.id);
             state[index].completed = action.payload.completed;
         },
+        // addFileIntoDirectory(state, action) {
+        //     const index = state.findIndex((file) => file.children = action.payload)
+        //     state[index].children = action.payload.children
+        // }
+
     },
 });
 
