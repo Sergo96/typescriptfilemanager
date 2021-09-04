@@ -2,9 +2,9 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 
 interface iDirectory {
-    id: number | string;
-    description: any;
-    parentId: number| string;
+    id?: number | string;
+    description?: any;
+    parentId?: number | string;
 }
 
 
@@ -27,9 +27,18 @@ const directorySlice = createSlice({
             }),
         },
 
-        removeDirectory(state, action: PayloadAction<iDirectory>) {
-            // const index = state.findIndex((file) => file.id === action.payload);
-            // state.splice(index, 1);
+        removeDirectory(state, action) {
+            // const index = state.findIndex((file) => {
+            //     console.log('id',typeof file.id);
+            //     console.log('payload',typeof action.payload)
+            //     return file?.id === action?.payload.id
+            // });
+            // console.log('redux', index)
+            // state = state.slice(index)
+
+            // state = state.slice(state[index])
+
+            state = state.slice(state.indexOf(action.payload?.id))
         },
     },
 });

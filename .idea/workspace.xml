@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78ff941b-1f9e-4e9b-be46-4c2e3347cac3" name="Changes" comment="office seventh commit">
-      <change afterPath="$PROJECT_DIR$/src/Components/DirectBreadCrubs/DirectBreadCrubs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/DirectBreadCrubs/DirectBreadCrubs.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/directorySlice/directorySlice.ts" afterDir="false" />
+    <list default="true" id="78ff941b-1f9e-4e9b-be46-4c2e3347cac3" name="Changes" comment="office 8th commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/DirectBreadCrubs/DirectBreadCrubs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DirectBreadCrubs/DirectBreadCrubs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/directorySlice/directorySlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/directorySlice/directorySlice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/SubFiles/SubFiles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SubFiles/SubFiles.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +83,7 @@
       <workItem from="1630595546872" duration="218000" />
       <workItem from="1630650753298" duration="8453000" />
       <workItem from="1630663752759" duration="13122000" />
-      <workItem from="1630747798245" duration="5026000" />
+      <workItem from="1630747798245" duration="15194000" />
     </task>
     <task id="LOCAL-00001" summary="office forth commit">
       <created>1630480836289</created>
@@ -123,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630595577339</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="office 8th commit">
+      <created>1630759311986</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1630759311987</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +150,7 @@
     <MESSAGE value="office fifth commit" />
     <MESSAGE value="office sixth commit" />
     <MESSAGE value="office seventh commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="office seventh commit" />
+    <MESSAGE value="office 8th commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="office 8th commit" />
   </component>
 </project>

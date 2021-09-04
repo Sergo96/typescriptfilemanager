@@ -8,7 +8,7 @@ import FileText from "./pages/FileText/FileText";
 import TrashBin from "./pages/TrashBin/TrashBin";
 
 import {signInWithPopup} from "firebase/auth";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, useParams} from "react-router-dom";
 import {auth, provider} from "./firebase";
 
 import {useDispatch, useSelector} from "react-redux";
@@ -19,10 +19,16 @@ import {
 
 import "./App.scss";
 import DirectBreadCrubs from "./Components/DirectBreadCrubs/DirectBreadCrubs";
+// import {removeDirectory} from "./features/directorySlice/directorySlice";
+
+export interface iFolderId{
+    folderId: number | string | any;
+}
 
 function App() {
     const dispatch = useDispatch();
     const userName = useSelector(selectUserName);
+    // const {folderId} = useParams<iFolderId>();
 
     const handleSignIn = () => {
         signInWithPopup(auth, provider).then((result) => {
@@ -34,6 +40,12 @@ function App() {
             );
         });
     };
+
+
+    // React.useEffect(() => {
+    //     dispatch(removeDirectory(folderId))
+    //     // eslint-disable-next-line
+    // }, [removeDirectory, folderId])
 
 
 

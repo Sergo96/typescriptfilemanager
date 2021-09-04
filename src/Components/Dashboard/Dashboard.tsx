@@ -18,7 +18,7 @@ import {
 import DeleteIcon from "@material-ui/icons/Delete";
 import DescriptionIcon from '@material-ui/icons/Description';
 import FolderIcon from '@material-ui/icons/Folder';
-import {addFileIntoDirectoryArr} from "../../features/directorySlice/directorySlice";
+import {addFileIntoDirectoryArr, removeDirectory} from "../../features/directorySlice/directorySlice";
 
 
 export default function Dashboard() {
@@ -34,6 +34,8 @@ export default function Dashboard() {
 
 
     const dispatch = useDispatch();
+
+    const {folderId} = useParams<any>();
 
 
     const handleSubmit = async (e: any) => {
@@ -69,6 +71,11 @@ export default function Dashboard() {
         // const directoryArr = todoList.files.filter((item) => item.id.toString())
         dispatch(addFileIntoDirectoryArr(id, directoryName, parentid))
     }
+
+    React.useEffect(() => {
+        dispatch(removeDirectory(folderId))
+        // eslint-disable-next-line
+    }, [removeDirectory, folderId])
 
     return (
         <>

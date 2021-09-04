@@ -9,18 +9,20 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 import {Link, useHistory} from "react-router-dom";
-import {addFile, removeFile, setFileStatus} from "../../features/fileSlice/fileSlice";
+
 import Button from "@material-ui/core/Button";
 import DescriptionIcon from "@material-ui/icons/Description";
 import FolderIcon from "@material-ui/icons/Folder";
 
 import "./SubFiles.scss"
+import {addFile, removeFile, setFileStatus} from "../../features/fileSlice/fileSlice";
+
 import {addFileIntoTrashBin} from "../../features/trashSlice/trashSlice";
-import {addFileIntoDirectoryArr} from "../../features/directorySlice/directorySlice";
+import {addFileIntoDirectoryArr, removeDirectory} from "../../features/directorySlice/directorySlice";
 
 
 const SubFiles = () => {
-    const {folderId} = useParams<{ folderId: any }>();
+    const {folderId} = useParams<{ folderId: string }>();
     const todoList = useSelector((state: RootState) => state);
     const dispatch = useDispatch();
 
@@ -56,16 +58,25 @@ const SubFiles = () => {
     const history = useHistory();
 
 
-    const addDirectory = () => {
-        const folder = todoList.files.find(item => item.id === folderId || item.id.toString() === folderId)
-        console.log('folder', folder)
-        if (!folder) return
-        const parent = todoList.files.find((item) => item.id.toString() === folder.id.toString())
-        console.log('parent', parent?.description)
-        // dispatch(addFileIntoDirectory(parent))
-        // const directoryArr = todoList.files.filter((item) => item.id.toString())
-        dispatch(addFileIntoDirectoryArr(folder?.id, folder?.description, folder?.parent))
+    // const addDirectory = () => {
+    //     const folder = todoList.files.find(item => item.id === folderId || item.id.toString() === folderId)
+    //     console.log('folder', folder)
+    //     if (!folder) return
+    //     const parent = todoList.files.find((item) => item.id.toString() === folder.id.toString())
+    //     console.log('parent', parent?.description)
+    //     // dispatch(addFileIntoDirectory(parent))
+    //     // const directoryArr = todoList.files.filter((item) => item.id.toString())
+    //     dispatch(addFileIntoDirectoryArr(parent?.id, parent?.description, parent?.parent))
+    // }
+
+    const addDirectory = (id: string | number, description: string, parent: string | number) => {
+        dispatch(addFileIntoDirectoryArr(id, description, parent))
     }
+
+    React.useEffect(() => {
+        dispatch(removeDirectory(folderId))
+        // eslint-disable-next-line
+    }, [removeDirectory, folderId])
 
     return (
         <>
@@ -104,7 +115,8 @@ const SubFiles = () => {
                 {filteredArraySecond.map((file: any) => (
                     <>
                         <Link to={`/folder/${file.id}`}>
-                            <ListItem key={file.id} onClick={addDirectory}>
+                            <ListItem key={file.id}
+                                      onClick={() => addDirectory(file?.id, file?.description, file?.parent)}>
                                 <ListItemText
                                     style={{
                                         textDecoration: file.completed ? "line-through" : "none",
