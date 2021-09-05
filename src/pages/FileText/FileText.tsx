@@ -1,12 +1,21 @@
 import React from 'react';
 import "./FileText.scss";
-
+import {CKEditor} from 'ckeditor4-react';
 
 
 const FileText = () => {
-    return(
+    const [editorValue, setEditorValue] = React.useState<string>('');
+
+
+    return (
         <>
-            <textarea className={"textArea"}/>
+            <div className={"textArea"}>
+                <CKEditor
+                    value={editorValue}
+                    onChange={() => setEditorValue}
+                    initData={<p>{editorValue}</p>}
+                />
+            </div>
         </>
     )
 }

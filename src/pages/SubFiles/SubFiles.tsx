@@ -32,7 +32,7 @@ const SubFiles = () => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault()
-        const folderName = todoList.files.find(file => file.description === name && file.type === true)
+        const folderName = todoList.files.find(file => file.description === name && file.type === true && file.id !== parseInt(folderId))
         if (folderName) {
             alert('already exist')
         } else {

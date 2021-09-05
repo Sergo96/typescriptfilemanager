@@ -3,3 +3,14 @@
   justify-content: center;
   margin-bottom: 20px;
 }
+
+.breadCrumbs {
+  font-size: 25px;
+  padding: 5px;
+
+  span {
+    color: blue;
+    margin-right: 2px;
+    cursor: pointer;
+  }
+}

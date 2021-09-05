@@ -23,18 +23,14 @@ import {addFileIntoDirectoryArr, removeDirectory} from "../../features/directory
 
 export default function Dashboard() {
     const [name, setName] = React.useState<string>("");
-
     const todoList = useSelector((state: RootState) => state);
-
-
     const dispatch = useDispatch();
-
     const {folderId} = useParams<{ folderId: string }>();
 
 
     const handleSubmit = async (e: any) => {
         e.preventDefault()
-        const folderName = todoList.files.find(file => file.description === name && file.type === true)
+        const folderName = todoList.files.find(file => file.description === name && file.type === true && file.id !== parseInt(folderId))
         if (folderName) {
             alert('already exist')
         } else {
