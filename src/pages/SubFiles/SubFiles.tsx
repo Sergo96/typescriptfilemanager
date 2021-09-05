@@ -76,7 +76,7 @@ const SubFiles = () => {
     React.useEffect(() => {
         dispatch(removeDirectory(folderId))
         // eslint-disable-next-line
-    }, [removeDirectory, folderId])
+    }, [folderId])
 
     return (
         <>

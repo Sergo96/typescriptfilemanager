@@ -2,13 +2,15 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 
 interface iDirectory {
-    id?: number | string;
-    description?: any;
-    parentId?: number | string;
+    id?: number | string,
+    description: string,
+    parentId?: string | number,
 }
 
 
-const initialState = [] as iDirectory[];
+const initialState = {
+    breadCrumbArr: [] as iDirectory[],
+};
 
 const directorySlice = createSlice({
     name: "directoryArray",
@@ -16,7 +18,7 @@ const directorySlice = createSlice({
     reducers: {
         addFileIntoDirectoryArr: {
             reducer: (state, action: PayloadAction<iDirectory>) => {
-                state.push(action.payload);
+                state.breadCrumbArr.push(action.payload);
             },
             prepare: (id, description, parentId) => ({
                 payload: {
@@ -28,17 +30,27 @@ const directorySlice = createSlice({
         },
 
         removeDirectory(state, action) {
-            // const index = state.findIndex((file) => {
-            //     console.log('id',typeof file.id);
-            //     console.log('payload',typeof action.payload)
-            //     return file?.id === action?.payload.id
-            // });
-            // console.log('redux', index)
-            // state = state.slice(index)
+            const index = state.breadCrumbArr.findIndex((file) => {
+                console.log(file)
+                console.log('id',  file.id);
+                console.log('payload',  action.payload)
+                return file?.id === parseInt(action?.payload)
+            });
+            console.log('redux', index)
+            // return state.slice(state[index])
+            // state = state.splice(0, index + 1);
+
+            // state = state.slice(0, index)
+
 
             // state = state.slice(state[index])
 
-            state = state.slice(state.indexOf(action.payload?.id))
+            // state =  state.slice(index))
+
+            // state = state.slice(state.indexOf(action.payload))
+
+            state.breadCrumbArr = state.breadCrumbArr.splice(0, index + 1)
+
         },
     },
 });

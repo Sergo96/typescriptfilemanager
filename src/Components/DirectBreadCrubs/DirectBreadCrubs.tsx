@@ -13,7 +13,7 @@ const DirectBreadCrubs = () => {
     return (
         <>
             <div className="direcory_wrapp">
-                {directList.directoryFiles.map((directName: any) => {
+                {directList.directoryFiles.breadCrumbArr.map((directName: any) => {
                     return (
                         <p>{directName.description}/</p>
                     )

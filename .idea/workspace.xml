@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="78ff941b-1f9e-4e9b-be46-4c2e3347cac3" name="Changes" comment="office 8th commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/DirectBreadCrubs/DirectBreadCrubs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DirectBreadCrubs/DirectBreadCrubs.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/directorySlice/directorySlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/directorySlice/directorySlice.ts" afterDir="false" />
@@ -27,8 +26,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/App.tsx" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/app/hooks.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/app/store.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/app/hooks.ts" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1xLsSQNIp0rgso4fzjtJMRt0oir" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -45,7 +44,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="C:\Users\Doc\WebstormProjects\typescriptfilemanager\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -84,6 +83,8 @@
       <workItem from="1630650753298" duration="8453000" />
       <workItem from="1630663752759" duration="13122000" />
       <workItem from="1630747798245" duration="15194000" />
+      <workItem from="1630777803021" duration="2059000" />
+      <workItem from="1630826075298" duration="8144000" />
     </task>
     <task id="LOCAL-00001" summary="office forth commit">
       <created>1630480836289</created>

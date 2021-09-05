@@ -23,19 +23,13 @@ import {addFileIntoDirectoryArr, removeDirectory} from "../../features/directory
 
 export default function Dashboard() {
     const [name, setName] = React.useState<string>("");
-    // const {folderId} = useParams<{ folderId: any }>();
 
-
-    // const {userEmail} = useSelector((state: any) => state.user);
     const todoList = useSelector((state: RootState) => state);
-
-
-    console.log(todoList)
 
 
     const dispatch = useDispatch();
 
-    const {folderId} = useParams<any>();
+    const {folderId} = useParams<{ folderId: string }>();
 
 
     const handleSubmit = async (e: any) => {
@@ -62,20 +56,13 @@ export default function Dashboard() {
     const filteredArr = todoList?.files.filter((data: any) => data?.parent === undefined)
 
     const addDirectory = (id: string | number, directoryName: string, parentid: number | string) => {
-        // const folder = todoList.files.find(item => item.id === folderId || item.id.toString() === folderId)
-        // console.log('folder', folder)
-        // if (!folder) return
-        // const parent = todoList.files.find((item) => item.id.toString() === folder.id.toString())
-        // console.log('parent', parent?.description)
-        // dispatch(addFileIntoDirectory(parent))
-        // const directoryArr = todoList.files.filter((item) => item.id.toString())
         dispatch(addFileIntoDirectoryArr(id, directoryName, parentid))
     }
 
     React.useEffect(() => {
         dispatch(removeDirectory(folderId))
         // eslint-disable-next-line
-    }, [removeDirectory, folderId])
+    }, [folderId])
 
     return (
         <>
