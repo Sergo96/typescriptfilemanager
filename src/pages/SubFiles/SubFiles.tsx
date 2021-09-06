@@ -25,8 +25,6 @@ const SubFiles = () => {
     const {folderId} = useParams<{ folderId: string }>();
     const todoList = useSelector((state: RootState) => state);
     const dispatch = useDispatch();
-
-
     const [name, setName] = React.useState<string>("");
 
 
@@ -43,7 +41,7 @@ const SubFiles = () => {
 
     const handleFileSubmit = async (e: any) => {
         e.preventDefault()
-        const fileName = todoList.files.find(file => file.description === name && file.type === false)
+        const fileName = todoList.files.find(file => file.description === name && file.type === false && file.id !== parseInt(folderId))
         if (fileName) {
             alert('already exist')
         } else {
@@ -57,17 +55,6 @@ const SubFiles = () => {
     // this is to go back function
     const history = useHistory();
 
-
-    // const addDirectory = () => {
-    //     const folder = todoList.files.find(item => item.id === folderId || item.id.toString() === folderId)
-    //     console.log('folder', folder)
-    //     if (!folder) return
-    //     const parent = todoList.files.find((item) => item.id.toString() === folder.id.toString())
-    //     console.log('parent', parent?.description)
-    //     // dispatch(addFileIntoDirectory(parent))
-    //     // const directoryArr = todoList.files.filter((item) => item.id.toString())
-    //     dispatch(addFileIntoDirectoryArr(parent?.id, parent?.description, parent?.parent))
-    // }
 
     const addDirectory = (id: string | number, description: string, parent: string | number) => {
         dispatch(addFileIntoDirectoryArr(id, description, parent))

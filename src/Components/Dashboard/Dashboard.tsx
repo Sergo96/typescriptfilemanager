@@ -40,7 +40,7 @@ export default function Dashboard() {
 
     const handleFileSubmit = async (e: any) => {
         e.preventDefault()
-        const fileName = todoList.files.find(file => file.description === name && file.type === false)
+        const fileName = todoList.files.find(file => file.description === name && file.type === false && file.id !== parseInt(folderId))
         if (fileName) {
             alert('already exist')
         } else {
@@ -112,7 +112,6 @@ export default function Dashboard() {
                                             <p>{file.description}</p>
                                         </div>
                                     </Link>
-
                                 ) : (
                                     <Link to={`/file/${file.id}`} style={{
                                         textDecoration: "none",
@@ -124,8 +123,6 @@ export default function Dashboard() {
                                         </div>
                                     </Link>
                                 )}
-
-
                             </ListItemText>
                             <ListItemSecondaryAction>
                                 <IconButton

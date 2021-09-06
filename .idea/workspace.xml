@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78ff941b-1f9e-4e9b-be46-4c2e3347cac3" name="Changes" comment="office home 8th commit">
+    <list default="true" id="78ff941b-1f9e-4e9b-be46-4c2e3347cac3" name="Changes" comment="office 8th commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/DirectBreadCrubs/DirectBreadCrubs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DirectBreadCrubs/DirectBreadCrubs.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/DirectBreadCrubs/DirectBreadCrubs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DirectBreadCrubs/DirectBreadCrubs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/FileText/FileText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/FileText/FileText.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/directorySlice/directorySlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/directorySlice/directorySlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/fileSlice/fileSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/userSlice/userSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/userSlice/userSlice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/SubFiles/SubFiles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SubFiles/SubFiles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/TrashBin/TrashBin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TrashBin/TrashBin.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,18 +29,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/App.tsx" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/app/store.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/app/hooks.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/app/store.ts" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1xLsSQNIp0rgso4fzjtJMRt0oir" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -56,7 +49,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="C:\Users\Doc\WebstormProjects\typescriptfilemanager\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -95,8 +88,6 @@
       <workItem from="1630650753298" duration="8453000" />
       <workItem from="1630663752759" duration="13122000" />
       <workItem from="1630747798245" duration="15194000" />
-      <workItem from="1630777803021" duration="2059000" />
-      <workItem from="1630826075298" duration="14998000" />
     </task>
     <task id="LOCAL-00001" summary="office forth commit">
       <created>1630480836289</created>
@@ -140,14 +131,7 @@
       <option name="project" value="LOCAL" />
       <updated>1630759311987</updated>
     </task>
-    <task id="LOCAL-00007" summary="office home 8th commit">
-      <created>1630843278549</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1630843278550</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,7 +155,6 @@
     <MESSAGE value="office sixth commit" />
     <MESSAGE value="office seventh commit" />
     <MESSAGE value="office 8th commit" />
-    <MESSAGE value="office home 8th commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="office home 8th commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="office 8th commit" />
   </component>
 </project>

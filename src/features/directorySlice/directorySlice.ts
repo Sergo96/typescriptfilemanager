@@ -31,24 +31,8 @@ const directorySlice = createSlice({
 
         removeDirectory(state, action) {
             const index = state.breadCrumbArr.findIndex((file) => {
-                console.log(file)
-                console.log('id',  file.id);
-                console.log('payload',  action.payload)
                 return file?.id === parseInt(action?.payload)
             });
-            console.log('redux', index)
-            // return state.slice(state[index])
-            // state = state.splice(0, index + 1);
-
-            // state = state.slice(0, index)
-
-
-            // state = state.slice(state[index])
-
-            // state =  state.slice(index))
-
-            // state = state.slice(state.indexOf(action.payload))
-
             state.breadCrumbArr = state.breadCrumbArr.splice(0, index + 1)
 
         },

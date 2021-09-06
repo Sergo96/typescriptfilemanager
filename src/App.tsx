@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import Header from "./Components/Header/Header";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import SubFiles from "./pages/SubFiles/SubFiles";
@@ -19,16 +18,11 @@ import {
 
 import "./App.scss";
 import DirectBreadCrubs from "./Components/DirectBreadCrubs/DirectBreadCrubs";
-// import {removeDirectory} from "./features/directorySlice/directorySlice";
 
-export interface iFolderId{
-    folderId: number | string | any;
-}
 
 function App() {
     const dispatch = useDispatch();
     const userName = useSelector(selectUserName);
-    // const {folderId} = useParams<iFolderId>();
 
     const handleSignIn = () => {
         signInWithPopup(auth, provider).then((result) => {
@@ -40,14 +34,6 @@ function App() {
             );
         });
     };
-
-
-    // React.useEffect(() => {
-    //     dispatch(removeDirectory(folderId))
-    //     // eslint-disable-next-line
-    // }, [removeDirectory, folderId])
-
-
 
 
     return (

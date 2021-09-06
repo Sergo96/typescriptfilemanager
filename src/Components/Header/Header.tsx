@@ -13,13 +13,13 @@ import {DeleteSharp} from '@material-ui/icons';
 
 const Header = () => {
 
-    const dispatch = useDispatch()
-
+    const dispatch = useDispatch();
     let history = useHistory();
 
     function handlePushIntoTrashClick() {
         history.push("/trashBin");
     }
+
     const handleSignOut = () => {
         auth
             .signOut()
@@ -28,6 +28,7 @@ const Header = () => {
             })
             .catch((err) => alert(err.message));
     };
+
     return (
         <div className="header">
             <div className="header__logo">

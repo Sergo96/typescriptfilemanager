@@ -55,10 +55,6 @@ const fileSlice = createSlice({
             const index = state.findIndex((file) => file.id === action.payload.id);
             state[index].completed = action.payload.completed;
         },
-        // addFileIntoDirectory(state, action) {
-        //     const index = state.findIndex((file) => file.children = action.payload)
-        //     state[index].children = action.payload.children
-        // }
 
     },
 });
